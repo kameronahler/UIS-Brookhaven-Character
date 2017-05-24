@@ -1,0 +1,43 @@
+/* ============================
+
+Sidewalk Page
+
+=============================== */
+
+.webform-component--image-survey{
+	img{
+		display:block;
+		margin:1em auto;
+
+		@include bp(md){
+			width:100% !important;
+			height:auto !important;
+			box-shadow: 0 4px 8px -3px rgba(black,.2)
+		}
+	}
+	p{
+		margin-bottom:0;
+	}
+	h4{
+		@include bp(md){
+			text-align:center;
+		}
+	}
+	.fieldset-wrapper{
+		@include bp(md){
+			@include flex(center,flex-start);
+			flex-wrap:wrap;
+		}
+	}
+	.form-item{
+		@include bp(md){
+			margin:0;
+		}
+	}
+	.webform-component-fieldset{
+		@include bp(md){
+			flex-basis:50%;
+			padding:1rem;
+		}
+	}
+}
