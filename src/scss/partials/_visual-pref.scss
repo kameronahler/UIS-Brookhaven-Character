@@ -1,0 +1,140 @@
+/* ================================
+Visual Preference Webform
+================================= */
+
+/* ----------------
+Form Side
+------------------*/
+.webform-component--visual-preference{
+	
+	// checkbox wrapper
+	.form-checkboxes{
+
+		@include bp(xs){
+			@include flex(space-between,flex-start);
+			flex-wrap:wrap;
+		}		
+
+		// flex item wrappers
+		> .form-item{
+			display:block;
+			width:100%;
+			
+			@include bp(xs){
+				width:calc(50% - .5rem);
+			}
+			@include bp(md){
+				width:calc(25% - .5rem);
+			}
+
+			// label
+			.option{
+				display:block;
+				text-align:center;
+				font-weight:700;
+				margin-bottom:10pxi;
+				position:relative;
+
+				@include bp(md){
+					cursor:pointer;
+				}
+				
+				// img general non-specific styling
+				&::before{
+					background-color:transparent;
+					background-position:50%;
+					background-repeat:no-repeat;
+					background-size:cover;
+					box-shadow:0 10pxi 15px -4px rgba(black,.22);
+					content:"";
+					display:block;
+					height:150px;
+					margin-bottom:10pxi;
+					width:100%;
+					border-radius:1px;
+				}
+				&::after{
+					@include absolute(0,0);
+					@include flex(center,center);
+					background:rgba($color-1,.625) url('/files/icon-check.svg') no-repeat 50%;;
+					background-size:25% 25%;
+					color:white;
+					content:"";
+					height:150px;
+					opacity:0;
+					width:100%;
+					transition:opacity .2s ease;
+				}
+			}
+		}
+	}
+
+	// style checked imgs
+	input.form-checkbox:checked{
+		~ .option{
+			color:$color-1;
+			&::before{
+				box-shadow:none;
+			}
+			&::after{
+				opacity:1;
+			}
+		}
+	}
+
+
+
+	
+	// mixin for individual page background images
+	@mixin bg-img($option,$url){
+		&[class*="choice-#{$option}"]{
+			.option::before{
+				background-image:url('/files/#{$url}.jpg');
+			}
+		}
+	}
+	
+	// visual pref questions
+	.form-item{
+		@include bg-img(plaza,plaza-xs);
+		@include bg-img(landscaping,landscaping-xs);
+		@include bg-img(play,play-xs);
+		@include bg-img(pocket,pocket-xs);
+		@include bg-img(dog,dog-xs);
+		@include bg-img(garden,gardening-xs);
+		@include bg-img(court,courtyard-xs);
+		@include bg-img(plaza2,plaza2-xs);
+
+		@include bp(md){
+			@include bg-img(plaza,plaza-lg);
+			@include bg-img(landscaping,landscaping-lg);
+			@include bg-img(play,play-lg);
+			@include bg-img(pocket,pocket-lg);
+			@include bg-img(dog,dog-lg);
+			@include bg-img(garden,gardening-lg);
+			@include bg-img(court,courtyard-lg);
+			@include bg-img(plaza2,plaza2-lg);
+		}
+	}
+
+
+	// accessibly hide radio inputs
+	input.form-checkbox{
+		@include hide;
+
+		// remove topcoat checkboxes
+		~ .topcoat-checkbox__checkmark{
+			display:none;
+		} 
+	}
+
+	// submit
+	.form-actions{
+		text-align:right;
+	} 
+
+	// social
+	.share-links{
+		display:none;
+	}
+}
