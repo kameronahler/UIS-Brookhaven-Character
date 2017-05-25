@@ -6,7 +6,7 @@ Visual Preference Webform
 Form Side
 ------------------*/
 .webform-component--visual-preference{
-	
+
 	// checkbox wrapper
 	.form-checkboxes{
 
@@ -56,7 +56,7 @@ Form Side
 				&::after{
 					@include absolute(0,0);
 					@include flex(center,center);
-					background:rgba($color-1,.625) url('/files/icon-check.svg') no-repeat 50%;;
+					background:rgba($color-1,.75) url('/files/icon-check.svg') no-repeat 50%;;
 					background-size:25% 25%;
 					color:white;
 					content:"";
